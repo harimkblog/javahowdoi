@@ -24,15 +24,10 @@ public class OptionalDemo {
     public static void main(String[] args ) {
         //System.out.println( greeting(true) );
         System.out.println(greeting2(true).orElse("null"));
-        Optional<String> o = Optional.of("HW").map(l -> l.toLowerCase());
-Optional<Optional<String>> o2 = Optional.of("HW").map(l -> Optional.of("hw"));
-// flatten the Optional objects
-Optional<String> o3 = Optional.of("HW").flatMap(l -> Optional.of("hw"));
+        Optional<String> o = Optional.of("HW").map(String::toLowerCase);
+        Optional<Optional<String>> o2 = Optional.of("HW").map(l -> Optional.of("hw"));
+        // flatten the Optional objects
+        Optional<String> o3 = Optional.of("HW").flatMap(l -> Optional.of("hw"));
         System.out.println(o.toString());
     }
 }
-
-/**
-    Optional<String> os = Optional.ofNullable(greeting(true));
-    assertEquals( "Greeting match", "Hello World!!!", os.orElse("default greeting"));
-**/

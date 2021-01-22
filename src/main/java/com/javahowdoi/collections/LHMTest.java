@@ -18,7 +18,8 @@ public class LHMTest {
         int i = 0;
         while(it.hasNext()) {
             Integer k = it.next().getKey();
-            assert ( k == i++);
+            assert ( k == i);
+            ++i;
         }
     }
 }

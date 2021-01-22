@@ -8,13 +8,8 @@ import java.util.PriorityQueue;
  */
 public class PriorityQueueTest {
     public static void main(String[] args ) {
-        Comparator<Integer> c = new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                int i1 = o1;
-                int i2 = o2;
-                return (i2 < i1) ? -1 : ((i2 == i1) ? 0 : 1);
-            }
+        Comparator<Integer> c = (o1, o2) -> {
+            return Integer.compare(o2, o1);
         };
         PriorityQueue<Integer> pq = new PriorityQueue<>(100, c);
         for(int i = 0; i < 10; ++i)

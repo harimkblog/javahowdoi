@@ -11,7 +11,7 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class PhaserDemo {
     private static class PhaserTask implements Runnable {
-        private Phaser p;
+        private final Phaser p;
 
         PhaserTask(Phaser p) {
             this.p = p;

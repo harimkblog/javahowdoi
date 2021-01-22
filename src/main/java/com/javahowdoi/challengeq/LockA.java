@@ -10,7 +10,7 @@ public class LockA {
         }
 
         @Override
-        public void close() throws Exception {
+        public void close() {
             // resource release code
             //...
             //...

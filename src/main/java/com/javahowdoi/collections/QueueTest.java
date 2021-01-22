@@ -13,7 +13,7 @@ public class QueueTest {
             li.add(i);
         for(int i = 0; i < 1000; ++i ) {
             Integer i1 = li.poll();
-            assert ( i1 == i);
+            assert ( i1 != null && i1 == i);
         }
 
         // returns null if there are no elements

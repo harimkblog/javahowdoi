@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  */
 public class LockIssue2 {
     private int i;
-    private ReadWriteLock l = new ReentrantReadWriteLock();
+    private final ReadWriteLock l = new ReentrantReadWriteLock();
 
     public int getI() {
         l.readLock().lock();

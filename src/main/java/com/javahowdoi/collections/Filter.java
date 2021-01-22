@@ -51,25 +51,22 @@ public class Filter {
         List<Integer> l2 = new ArrayList<>();
         l.stream()
          .filter( (Integer x) -> x <= 200 && x >= 100 )
-         .forEach( (x) -> l2.add(x));
+         .forEach(l2::add);
         return l2;
     }
 
     @Benchmark
     public List<Integer> filterWithStreamAndCollect() {
-        List<Integer> l2 = l.stream()
+        return l.stream()
                 .filter( (Integer x) -> x <= 200 && x >= 100 )
                 .collect( Collectors.toList());
-        return l2;
     }
 
     @Benchmark
     public List<Integer> filterWithIterator() {
         List<Integer> l2 = new ArrayList<>();
-        ListIterator<Integer> li = l.listIterator();
-        while(li.hasNext()) {
-            Integer i = li.next();
-            if(  i <= 200  && i >= 100 )
+        for (Integer i : l) {
+            if (i <= 200 && i >= 100)
                 l2.add(i);
         }
         //Collections.unmodifiableCollection();

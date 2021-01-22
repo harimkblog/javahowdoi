@@ -52,8 +52,7 @@ public class SocketDemo {
 
             private String sendAndReceiveMessage(String msg) throws IOException {
                 out.println(msg);
-                String resp = in.readLine();
-                return resp;
+                return in.readLine();
             }
 
             public void close() throws IOException {

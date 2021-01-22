@@ -13,10 +13,8 @@ public class ConcurrentModification {
             l.add(i);
         }
 
-        Iterator<Integer> li = l.iterator();
-        while(li.hasNext()) {
-            Integer i = li.next();
-            if(  i <= 200  && i >= 100 )
+        for (Integer i : l) {
+            if (i <= 200 && i >= 100)
                 l.add(i);
         }
     }
@@ -46,10 +44,8 @@ public class ConcurrentModification {
 
         List<Integer> l2 =  Collections.synchronizedList(l);
 
-        Iterator<Integer> li = l2.iterator();
-        while(li.hasNext()) {
-            Integer i = li.next();
-            if(  i <= 200  && i >= 100 )
+        for (Integer i : l2) {
+            if (i <= 200 && i >= 100)
                 l2.remove(i);
         }
     }
@@ -60,10 +56,8 @@ public class ConcurrentModification {
             l.add(i);
         }
 
-        ListIterator<Integer> li = l.listIterator();
-        while(li.hasNext()) {
-            Integer i = li.next();
-            if(  i <= 200  && i >= 100 )
+        for (Integer i : l) {
+            if (i <= 200 && i >= 100)
                 l.add(i);
         }
     }

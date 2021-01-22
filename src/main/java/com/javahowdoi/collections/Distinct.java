@@ -24,7 +24,7 @@ public class Distinct {
         List<Integer> l2 = Arrays.asList(100, 200, 300, 400, 500, 600);
 
         HashSet<Integer> si = new HashSet<>(list);
-        List<Integer> l4 = new ArrayList<Integer>(si);
+        List<Integer> l4 = new ArrayList<>(si);
         System.out.println( l4.size() == l2.size() ?  "Size matches" :  "Size does not match" );
         System.out.println( !l2.equals(l4) ? "Order not maintained " : "Order maintained " );
     }
@@ -34,7 +34,7 @@ public class Distinct {
         List<Integer> l2 = Arrays.asList(100, 200, 300, 400, 500, 600);
 
         HashSet<Integer> si = new LinkedHashSet<>(list);
-        List<Integer> l4 = new ArrayList<Integer>(si);
+        List<Integer> l4 = new ArrayList<>(si);
         System.out.println( l4.size() == l2.size() ?  "Size matches" :  "Size does not match" );
         System.out.println( !l2.equals(l4) ? "Order not maintained " : "Order maintained " );
     }

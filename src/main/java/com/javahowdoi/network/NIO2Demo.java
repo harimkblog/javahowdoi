@@ -11,8 +11,8 @@ import java.util.concurrent.Future;
 public class NIO2Demo {
 
     private static class ReadHandler implements CompletionHandler<Integer, Object> {
-        private AsynchronousSocketChannel asc;
-        private ByteBuffer b;
+        private final AsynchronousSocketChannel asc;
+        private final ByteBuffer b;
 
         public ReadHandler(AsynchronousSocketChannel asc, ByteBuffer b) {
             this.asc = asc;
@@ -48,7 +48,7 @@ public class NIO2Demo {
     }
 
     private static class AcceptHandler implements CompletionHandler<AsynchronousSocketChannel, Object> {
-        private AsynchronousServerSocketChannel ssc;
+        private final AsynchronousServerSocketChannel ssc;
         public AcceptHandler(AsynchronousServerSocketChannel ssc ) {
             this.ssc = ssc;
         }
@@ -73,7 +73,7 @@ public class NIO2Demo {
 
     private static class SServer
     {
-        private AsynchronousChannelGroup g;
+        private final AsynchronousChannelGroup g;
         public SServer(AsynchronousChannelGroup g) {
             this.g = g;
         }

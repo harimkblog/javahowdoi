@@ -31,8 +31,8 @@ public class BlockingQueueTest {
     public static void main(String[] args ) throws InterruptedException {
         ExecutorService prod = Executors.newSingleThreadExecutor();
         ExecutorService consumer = Executors.newSingleThreadExecutor();
-        prod.submit( () -> queueAdd() );
-        consumer.submit( () -> queueReceive());
+        prod.submit(BlockingQueueTest::queueAdd);
+        consumer.submit(BlockingQueueTest::queueReceive);
         prod.awaitTermination(1, TimeUnit.SECONDS);
         consumer.awaitTermination(1, TimeUnit.SECONDS);
         prod.shutdown();

@@ -35,11 +35,7 @@ public class PriorityQueueDemo {
     public static void main(String[] args) {
         BlockingQueue<QueueItem> pbq = new PriorityBlockingQueue<>(10,
                 (QueueItem o1, QueueItem o2) -> {
-                    if( o1.getI() > o2.getI() )
-                        return -1;
-                    if( o1.getI() == o2.getI() )
-                        return 0;
-                    return 1;
+                    return Integer.compare(o2.getI(), o1.getI());
                 }
                 );
         ExecutorService tpe = Executors.newSingleThreadExecutor();

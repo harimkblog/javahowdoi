@@ -46,7 +46,7 @@ public class Reverse {
         if(s.charAt(0) == 'a')
             System.out.println("hello");
 
-        List<Integer> l2 = l2 = reverView(l1);
+        List<Integer> l2 =  reverView(l1);
         l1.add(101);
         assertEquals("reverse check", l2.get(0).longValue(), 101);
     }

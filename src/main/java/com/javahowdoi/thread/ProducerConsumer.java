@@ -7,7 +7,7 @@ import java.util.concurrent.*;
  */
 public class ProducerConsumer {
     private static class Task<T> implements Runnable{
-        private T e;
+        private final T e;
         public Task(T e) {
             this.e = e;
         }
@@ -18,10 +18,10 @@ public class ProducerConsumer {
         }
     }
 
-    private static void withExecutorService() throws InterruptedException {
+    private static void withExecutorService()  {
         ExecutorService es = Executors.newSingleThreadExecutor();
-        es.submit(new Task<Integer>(100));
-        es.submit(new Task<Integer>(200));
+        es.submit(new Task<>(100));
+        es.submit(new Task<>(200));
         es.shutdown();
     }
 

@@ -8,7 +8,7 @@ import java.util.WeakHashMap;
  */
 public class WeakReferenceTest {
     public static void main(String[] args) throws InterruptedException {
-        Integer wr = new Integer(100);
+        Integer wr = 200;
         Map<Integer, Integer> hm = new WeakHashMap<>();
         hm.put(wr, 100);
         System.out.println(hm.size());

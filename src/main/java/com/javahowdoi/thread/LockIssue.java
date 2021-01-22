@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class LockIssue {
     private int i;
-    private Lock l = new ReentrantLock();
+    private final Lock l = new ReentrantLock();
 
     public int getI() {
         try {

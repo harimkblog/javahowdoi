@@ -5,7 +5,7 @@ import org.apache.commons.lang3.SerializationUtils;
 import java.time.Instant;
 import java.util.ArrayList;
 
-import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.*;
 
 /**
  * Created by Hari on 1/8/2020.
@@ -30,7 +30,7 @@ public class CloneDemo {
     }
 
     private static class Inner2 implements Cloneable{
-        public String s = "";
+        public String s;
         public Inner1 i1 = new Inner1(1,2);
 
         Inner2(String s ) {
@@ -63,10 +63,10 @@ public class CloneDemo {
         //shallow copy
         ArrayList<Instant> al3 = new ArrayList<>(al);
         for(int i=0; i<10; ++i) {
-            assertEquals("Equals match", true, al2.get(i).equals(al.get(i)));
-            assertEquals("Equals match", true, al3.get(i).equals(al.get(i)));
-            assertEquals("Reference don't match", false, al2.get(i) == al.get(i));
-            assertEquals("Equals match", true, al3.get(i) == al.get(i));
+            assertTrue("Equals match", al2.get(i).equals(al.get(i)));
+            assertTrue("Equals match", al3.get(i).equals(al.get(i)));
+            assertFalse("Reference don't match", al2.get(i) == al.get(i));
+            assertTrue("Equals match", al3.get(i) == al.get(i));
         }
 
         ArrayList<Inner2> ai = new ArrayList<>();
@@ -79,9 +79,9 @@ public class CloneDemo {
             ai2.add( ai.get(i).clone());
 
         for(int i=0; i<10; ++i) {
-            assertEquals("Equals match", true, ai.get(i).equals(ai2.get(i)));
-            assertEquals("Reference don't match for Inner1", false, ai.get(i).i1 == ai2.get(i).i1);
-            assertEquals("Object reference matches for String", true, ai.get(i).s == ai2.get(i).s);
+            assertTrue("Equals match", ai.get(i).equals(ai2.get(i)));
+            assertFalse("Reference don't match for Inner1", ai.get(i).i1 == ai2.get(i).i1);
+            assertTrue("Object reference matches for String", ai.get(i).s == ai2.get(i).s);
         }
     }
 }

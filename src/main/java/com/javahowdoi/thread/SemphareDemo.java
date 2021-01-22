@@ -29,7 +29,7 @@ public class SemphareDemo {
         }
     }
 
-    public static void main(String[] args ) throws InterruptedException {
+    public static void main(String[] args ) {
         // 5 threads competing for two resource
         Semaphore se  = new Semaphore(2);
         ExecutorService es  = Executors.newFixedThreadPool(5);

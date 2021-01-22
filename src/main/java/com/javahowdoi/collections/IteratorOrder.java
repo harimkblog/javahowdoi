@@ -43,7 +43,7 @@ public class IteratorOrder {
         } catch(ConcurrentModificationException cme) {
             System.out.println(cme.toString());
         }
-        l.forEach((x)->System.out.println(x));
+        l.forEach(System.out::println);
     }
 
     public static void iteratorAdd() {
@@ -55,17 +55,16 @@ public class IteratorOrder {
         while(li.hasNext()) {
             li.add(li.next() + 100);
         }
-        l.forEach((x)->System.out.println(x));
+        l.forEach(System.out::println);
     }
 
     public static void main( String[] args) {
-        /**iteratorAdd();
-        concurrentExceptionDemo();
-        concurrentExceptionFix();
-**/
+        //iteratorAdd();
+        //concurrentExceptionDemo();
+        //concurrentExceptionFix();
         int[] p = { 1,2,3,4,5 };
         IntStream is = IntStream.of( p );
-        is.forEach( x -> System.out.println( x ) );
+        is.forEach(System.out::println);
     }
 }
 

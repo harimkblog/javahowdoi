@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.StringJoiner;
 
-import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.*;
 
 /**
  * Created by Hari on 1/4/2020.
@@ -16,7 +16,7 @@ public class ConcatDemo {
 
         // Option I
         String s3 = s1 + s2;
-        //assertEquals("helloworld match", "helloworld", s3 );
+        assertEquals("helloworld match", "helloworld", s3 );
 
         // Option II
         StringBuilder sb = new StringBuilder(32);
@@ -47,11 +47,11 @@ public class ConcatDemo {
             System.out.println("");
 
         s = "";
-        assertEquals("Empty check", true, StringUtils.isEmpty(s));
+        assertTrue("Empty check", StringUtils.isEmpty(s));
         s=null;
-        assertEquals("Null check", true, StringUtils.isEmpty(s));
+        assertTrue("Null check", StringUtils.isEmpty(s));
         s =" ";
-        assertEquals("Blank check false", false, StringUtils.isEmpty(s));
-        assertEquals("Blank check true", true, StringUtils.isBlank(s));
+        assertFalse("Blank check false", StringUtils.isEmpty(s));
+        assertTrue("Blank check true", StringUtils.isBlank(s));
     }
 }

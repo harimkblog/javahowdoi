@@ -19,7 +19,7 @@ public class ThreadPoolDemo {
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         ExecutorService es  = Executors.newFixedThreadPool(2); // create thread pool
         // executes Runnable tasks
         es.submit( new InterruptibleRunner());

@@ -5,7 +5,7 @@ import org.apache.commons.lang3.SerializationUtils;
 
 import java.util.*;
 
-import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.*;
 
 /**
  * Created by Hari on 2/22/2020.
@@ -26,26 +26,26 @@ public class Util {
 
         int[] ia = {1,2,3,4};
         int[] iac3 = SerializationUtils.clone(ia);
-        assertEquals( "Equals check", true, Arrays.equals(ia, iac3));
-        assertEquals( "Equals check", false, ia.equals(iac3));
+        assertTrue("Equals check", Arrays.equals(ia, iac3));
+        assertFalse("Equals check", ia.equals(iac3));
 
         int[] iac2 = Arrays.copyOf(ia, ia.length);
-        assertEquals( "Equals check", true, Arrays.equals(ia, iac2));
+        assertTrue("Equals check", Arrays.equals(ia, iac2));
 
         int[] iac = {101,102,103,104};
         System.arraycopy(ia, 0, iac, 0, ia.length);
-        assertEquals( "Equals check", true, Arrays.equals(ia, iac));
+        assertTrue("Equals check", Arrays.equals(ia, iac));
 
 
         int[] iad = {1,2,3,4};
-        assertEquals( "Equals check", true, Arrays.equals(ia, iad));
+        assertTrue("Equals check", Arrays.equals(ia, iad));
         int[] iae = ia;
-        assertEquals( "Equals check", true, ia.equals(iae));
-        assertEquals( "Not Equals check", false, ia.equals(iad));
+        assertTrue("Equals check", ia.equals(iae));
+        assertFalse("Not Equals check", ia.equals(iad));
 
         Integer[] io = {1,2,3,4};
         Integer[] io2 = Arrays.stream(io).toArray(Integer[]::new);
-        assertEquals( "Equals check", true, Arrays.equals(io, io2));
+        assertTrue("Equals check", Arrays.equals(io, io2));
 
         Integer[] IA = ArrayUtils.toObject(ia);
         int[] ia3 = ArrayUtils.toPrimitive(IA);
